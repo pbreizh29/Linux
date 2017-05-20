@@ -82,8 +82,8 @@ struct irq_data *irqdata;
 static long send_pulse(unsigned long length);
 static void send_space(long length);
 static void lirc_sparky_exit(void);
-/*GPIOB4-36 (32+4), B12-44 , B13-45 , B14-46,B15-47,B16-48,B19-51,B30-62 */
-int valid_gpio_pins[] = {36, 44, 45, 46, 47, 48, 51, 62,};
+/*GPIOB4-36 (32+4), B12-44 , B13-45 , B14-46,B15-47,B16-48,B19-51,B21-53, B23-55, B27-59, B28-60, B30-62 */
+int valid_gpio_pins[] = {36, 44, 45, 46, 47, 48, 51, 53, 55, 59, 60, 62,};
 
 static struct platform_device *lirc_sparky_dev;
 static struct timeval lasttv = { 0, 0 };
@@ -713,13 +713,13 @@ MODULE_LICENSE("GPL");
 
 module_param(gpio_out_pin, int, S_IRUGO);
 MODULE_PARM_DESC(gpio_out_pin, "GPIO output/transmitter pin number of the Sparky SBC"
-		 "GPIO PORTB Valid pin numbers are: 36, 44, 45, 46, 47, 48, 51, 62"
-			"  GPIOB4 is 36(32+4),B12-44,B13-45,B14-46,B15-47,B16-48,B19-51,B30-62");
+		 "GPIO PORTB Valid pin numbers are: 36, 44, 45, 46, 47, 48, 51, 53, 55, 59, 60, 62"
+			"  GPIOB4 is 36(32+4), B12-44 , B13-45 , B14-46,B15-47,B16-48,B19-51,B21-53, B23-55, B27-59, B28-60, B30-62");
 
 module_param(gpio_in_pin, int, S_IRUGO);
 MODULE_PARM_DESC(gpio_in_pin, "GPIO input pin number of the Sparky SBC."
-		 "GPIO PORTB Valid pin numbers are: 36, 44, 45, 46, 47, 48, 51, 62"
-		"  GPIOB4 is 36(32+4),B12-44,B13-45,B14-46,B15-47,B16-48,B19-51,B30-62");
+		 "GPIO PORTB Valid pin numbers are: 36, 44, 45, 46, 47, 48, 51, 53, 55, 59, 60, 62"
+		"  GPIOB4 is 36(32+4), B12-44 , B13-45 , B14-46,B15-47,B16-48,B19-51,B21-53, B23-55, B27-59, B28-60, B30-62");
 
 module_param(sense, int,0);
 MODULE_PARM_DESC(sense, "Override autodetection of IR receiver circuit"
